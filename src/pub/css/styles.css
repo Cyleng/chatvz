@@ -70,3 +70,54 @@ button {
     margin-bottom: 16px;
     width: 100%;
 }
+
+
+
+/* chat room */
+
+.chat {
+    display: flex;
+}
+
+.chat-sidebar {
+    height: 100vh;
+    color: white;
+    background: #242838;
+    width: 230px;
+    overflow-y: scroll
+}
+
+.chat-main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    padding: 22px 22px 0 22px;
+    overflow-y: scroll;
+}
+
+.writing {
+    display: flex;
+    flex-shrink: 0;
+    margin-top: 15px;
+    padding: 24px;
+}
+
+#message-form {
+    display: flex;
+    flex-grow: 1;
+    margin-right: 15px;
+}
+
+.writing input {
+    flex-grow: 1;
+    border: 1px solid #eeeeee;
+    width: 100%;
+    padding: 15px;
+    margin: 0 15px 0 0;
+ 
+}
