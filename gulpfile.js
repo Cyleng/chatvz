@@ -1,37 +1,62 @@
 const gulp = require('gulp');
-const {src, dest, series, parallel} = require('gulp');
+const {src, dest, series, parallel, task} = require('gulp');
 const del = require('del');
+const browsersync = require('browser-sync');
+const concat = require('gulp-concat');
+const htmlReplace = require('gulp-html-replace');
+const cleanCSS = require('gulp-clean-css');
+const sourcemaps = require('gulp-sourcemaps');
+const uglify = require('gulp-uglify');
+const imagemin = require('gulp-imagemin');
 
-gulp.task('html', function(){
+// function browserSync {
+//     return browsersync.init({
+//         server:{
+//             baseDir: './dist',
+//         },
+//         port:3000,
+//     });
+// }
+
+function htmlTask(){
     return gulp.src('src/pub/*.html')
     .pipe(gulp.dest('dist/pub'))
-})
+}
 
-gulp.task('css', function(){
+function cssTask(){
     return gulp.src('src/pub/css/*.css')
     .pipe(gulp.dest('dist/pub/css'))
-})
+}
 
-gulp.task('image', function(){
+function imageTask(){
     return gulp.src('src/pub/img/*.{jpg, jpeg, png, gif}')
     .pipe(gulp.dest('dist/pub/img'))
-})
+}
 
-gulp.task('script', function(){
+function scriptTask(){
     return gulp.src('src/js/*.js')
     .pipe(gulp.dest('dist/js'))
-})
+}
 
-gulp.task('clean',function(){
+function cleanTask(){
     return del('dist/**/*');
-})
+}
 
-gulp.task('build', ['css', 'script', 'image'], function(){
-    gulp.start('html');
-})
+function buildTask(){
 
-gulp.task('default',['clean'], function(){
-    gulp.start('build');
-})
+}
 
+
+
+
+exports.html = htmlTask;
+exports.styles = cssTask;
+exports.scripts = scriptTask;
+exports.images = imageTask;
+// exports.watch = browserSync;
+exports.dev = series(
+    parallel(htmlTask, scriptTask, cssTask, imageTask)
+    // parallel(browserSync)
+);
+exports.default = parallel(htmlTask, cssTask, scriptTask);
 
