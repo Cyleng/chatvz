@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "node dist/js/index.js",
+    "dev": "node src/js/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Chuanyu Leng",
