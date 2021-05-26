@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node dist/js/index.js",
+    "postinstall": "gulp",
     "dev": "node src/js/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
