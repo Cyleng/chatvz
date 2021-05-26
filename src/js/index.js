@@ -41,19 +41,19 @@ io.on('connection',(socket)=>{
     //console.log('user come in');
     socket.on('disconnect',()=>{
         //
-        console.log(socket.id)
+        // console.log(socket.id)
         const user=rmUser(socket.id);
-        console.log(user);
-        //console.log(getAllUsers());
-        // const user=rmUser(socket.id);
+        // console.log(user);
+        // console.log(getAllUsers());
+        
         // console.log(`${user.username} left`)
-        // if (user){
-        //     io.to(user.room).emit('message', sendMessage('Room Admin',`${user.username} has left.`));
-        //     io.to(user.room).emit('allUsers',{
-        //         room:user.room,
-        //         users: getAllUsers()
-        //     })
-        // }
+        if (user){
+            io.to(user.room).emit('message', sendMessage('Room Admin',`${user.username} has left.`));
+            io.to(user.room).emit('allUsers',{
+                room:user.room,
+                users: getAllUsers()
+            })
+        }
     })
 })
 

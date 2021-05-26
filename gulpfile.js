@@ -39,6 +39,11 @@ function scriptTask(){
     .pipe(gulp.dest('dist/js'))
 }
 
+function pubScriptTask(){
+    return gulp.src('src/pub/*.js')
+    .pipe(gulp.dest('dist/pub'))
+}
+
 function cleanTask(){
     return del('dist/**/*');
 }
@@ -54,10 +59,11 @@ exports.html = htmlTask;
 exports.styles = cssTask;
 exports.scripts = scriptTask;
 exports.images = imageTask;
+exports.pubScript=pubScriptTask;
 // exports.watch = browserSync;
 exports.dev = series(
-    parallel(htmlTask, scriptTask, cssTask, imageTask)
+    parallel(htmlTask, scriptTask, cssTask, imageTask,pubScriptTask)
     // parallel(browserSync)
 );
-exports.default = parallel(htmlTask, cssTask, scriptTask);
+exports.default = parallel(htmlTask, cssTask, scriptTask,pubScriptTask);
 
