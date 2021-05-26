@@ -25,6 +25,7 @@ function htmlTask(){
 
 function cssTask(){
     return gulp.src('src/pub/css/*.css')
+    .pipe(cleanCSS())
     .pipe(gulp.dest('dist/pub/css'))
 }
 

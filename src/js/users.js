@@ -1,7 +1,7 @@
 const users = [];
 
 
-const addUser = ({id, username})=>{
+const addUser = (id, username,room)=>{
 
 
     //checking  if username is taken
@@ -14,27 +14,30 @@ const addUser = ({id, username})=>{
         //console.log("username is taken");
     }
 
-    const user = {id, username};
+    const user = {id, username, room};
     users.push(user);
     return user;
 
 }
 
 const rmUser = ((id)=>{
-    const index = users.findIndex((user)=>user.id ===id);
-    if(index){
-        return users.splice(index, 1);
+    const index = users.findIndex((user)=>user.id === id);
+    if(index !== -1){
+        return users.splice(index, 1)[0];
     }
 })
 
 const getUser = ((id)=>{
-    const user = users.find((user)=>user.id===id);
+    const user = users.find((user)=>user.id === id);
     return user;
 })
 
-
+const getAllUsers=(()=>{
+    return users;
+})
 module.exports = {
     addUser,
     rmUser,
-    getUser
+    getUser,
+    getAllUsers
 }
