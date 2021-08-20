@@ -1,5 +1,4 @@
 # Chuanyu’s Project: chatvz
-
 This is chat room app based on Node js & Socket.io.
 
 ## Function:
@@ -10,3 +9,6 @@ This is chat room app based on Node js & Socket.io.
   - Support img upload
   - Text-to-speach
   - Speach-to-text
+
+## Example website:
+  <http://chatvz.me>
