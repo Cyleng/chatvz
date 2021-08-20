@@ -1,12 +1,10 @@
 # Chuanyu’s Project: chatvz
 
-This is chat room app based on Node js.
+This is chat room app based on Node js & Socket.io.
 
 ## Function:
-  - User registry
-  - Create chat room with unique room key
-  - Users join chat room with key
-  - Support muilti-users
+  -Input nickname to enter chatroom
+  -Chat with plain text.
 
 ## Features in research:
   - Support img upload
